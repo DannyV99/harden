@@ -31,15 +31,6 @@
         create_home: yes
         state: present
 
-    - name: Add sudoer rule for local user
-      copy:
-        dest: /etc/sudoers.d/admin
-        src: etc/sudoers.d/admin
-        owner: root
-        group: root
-        mode: 0440
-        validate: /usr/sbin/visudo -csf %s
-
     - name: Add hardened SSH config
       copy:
         dest: /etc/ssh/sshd_config
